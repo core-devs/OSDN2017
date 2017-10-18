@@ -1,0 +1,12 @@
+---
+- hosts: all
+  gather_facts: no
+  pre_tasks:
+    - name: 'Update apt'
+      become: yes
+      raw: apt update
+    - name: 'install python'
+      become: yes
+      raw: apt-get -y install python
+    - name: Gathering facts
+      setup:
